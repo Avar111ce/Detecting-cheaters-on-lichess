@@ -47,11 +47,15 @@ The function ```detecting_cheaters_if_distributions_are_not_normal(data1, data2)
 ipynb:
 
 git clone https://github.com/Avar111ce/Detecting-cheaters-on-lichess.git
+
 cd src
+
 jupyter notebook Detecting_cheaters_on_lichess.ipynb
 
 py:
 git clone https://github.com/Avar111ce/Detecting-cheaters-on-lichess.git
+
 cd src
+
 python Detecting_cheaters_on_lichess.py
 
