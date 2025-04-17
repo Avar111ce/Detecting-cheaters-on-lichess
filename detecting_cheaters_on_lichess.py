@@ -40,7 +40,7 @@ from io import StringIO                                # Библиотека д
 
 """# Задание функций"""
 
-def get_player_games(username, days=365, perf_type="blitz", end_date=None, token='lip_XdtZYxfUqOjOV0zNOSck'):
+def get_player_games(username, days=365, perf_type="blitz", end_date=None, token='your_token'):
     """
     Получает партии игрока за указанное количество месяцев
 
@@ -194,7 +194,7 @@ def calculate_accuracy(win_diff):
     """Вычисляет Accuracy% из разницы Win%"""
     return 103.1668 * math.exp(-0.04354 * win_diff) - 3.1669
 
-def analyze_player_performance(username, engine_path='/usr/games/stockfish', token='lip_XdtZYxfUqOjOV0zNOSck',  end_date=None, days=365, perf_type="blitz", depth=20):
+def analyze_player_performance(username, engine_path='/usr/games/stockfish', token='your_token',  end_date=None, days=365, perf_type="blitz", depth=20):
     """
     Анализирует партии игрока и возвращает DataFrame с метриками
 
@@ -544,12 +544,15 @@ def detecting_cheaters_if_distributions_are_not_normal(data1, data2):
     else:
         print("Число зевков в рассмотренных партиях не являются аномально низкими")
 
+
+#main
 """# Выгрузка и анализ партий"""
 
-players_stats = pd.read_csv('players_stats.csv').drop(columns=['Unnamed: 0'])
+
+players_stats = pd.read_csv('players_stats.csv')
 players_stats = players_stats[players_stats['TotalMoves'] > 1]
 
-tournament_stats = pd.read_csv('tournament_stats.csv').drop(columns=['Unnamed: 0'])
+tournament_stats = pd.read_csv('tournament_stats.csv')
 
 players_stats.describe().apply(lambda x: round(x, 1))
 
@@ -587,5 +590,3 @@ detecting_cheaters(players_stats, tournament_stats)
 
 detecting_cheaters_if_distributions_are_not_normal(players_stats, tournament_stats)
 
-players_stats.to_csv('players_stats.csv')
-tournament_stats.to_csv('tournament_stats.csv')
