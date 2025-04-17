@@ -1,39 +1,45 @@
 # Detecting-cheaters-on-lichess
 Программа выполняет анализ шахматных партий игрока за разные промежутки времени и проверяет, не читерил ли он в одном из них
 
-Для использования программы необходим python версией 3.8 и ниже
-В первом блоке ipynb-файла указаны команды для настройки виртуального окружения и скачивания необходимых библиотек
+## Requirements
 
-Для работы с программой нужен API-токен с lichess. Получить его можно, зайдя в настройки сайта —> Токены доступа к API —> Новый персональный токен доступа к API, после чего выбрать необходимо поставить все галочки и получить персональный токен доступа. Его нужно использовать в аргменте функции. https://lichess.org/account/oauth/token 
+To use the program you need python version 3.8 and below. The first block of the ipynb-file contains commands for setting up the virtual environment and downloading the necessary libraries
 
-Токен доступа нужен для использования функции, скачивающей партии, анализирующей их с помощью движка, считающей потери сантипешек, точность и число зевков, ошибок и неточностей:
+To work with the program you need **API token with lichess**. You can get it by going to site settings -> API access tokens -> New personal API access token, then select all the checkboxes and get a personal access token. It should be used in the function argent. https://lichess.org/account/oauth/token 
 
-analyze_player_performance(username, engine_path='/usr/games/stockfish', token='lip_XdtZYxfUqOjOV0zNOSck',  end_date=None, days=365, perf_type="blitz", depth=20)
-Функция возвращает Dataframe, в котором представлены описанные выше метрики для каждой партии
-Другие аргументы:
+The access token is needed to use the function that downloads games, analyzes them with the engine, counts the loss of centipedes, accuracy and number of yawns, errors and inaccuracies:
 
-username - ник игрока на lichess
 
-engine_path - путь, по которому установлн движок
+## Instructions
 
-end_date - строка с датой в формате '%Y-%m-%d'. Конечная дата временного периода
+```analyze_player_performance(username, engine_path='/usr/games/stockfish', token='yor_token',  end_date=None, days=365, perf_type="blitz", depth=20)```
 
-days - длительность временного периода
+The function returns a Dataframe that represents the metrics described above for each batch
+Other arguments:
 
-perf_type - тип партии ('blitz', 'bullet', 'rapid')
+username - the nickname of the player on lichess
 
-depth - глубина анализа движком
+engine_path - the path where the engine is installed
 
-В ходе работы с программой нужно 2 раза использовать эту функцию, чтобы получить 2 набора партий, чтобы потом их сравнить
+end_date - a string with the date in the format '%Y-%Y-%m-%d'. End date of the time period
 
-Затем функция plot_all_metrics(players_stats) строит гистограммы всех описаных выше метрик для указанного датафрейма.
+days - duration of the time period
 
-Функция normality_check(data) проверяет данные на нормальность
+perf_type - batch type ('blitz', 'bullet', 'rapid')
 
-Функция detecting_cheaters(data1, data2) проверяет гипотезу о равенстве средних значений, если данные обеих выборок нормальные
+depth - depth of analysis by the engine
 
-Функция detecting_cheaters_if_distributions_are_not_normal(data1, data2) проверяет гипотезу о равенстве средних значений, если данные не нормальные
+**While working with the program you should use this function 2 times to get 2 sets of batches to compare them later**
 
-Для прикрепленных датафреймов есть рассчитанные столбцы с нормализованными данными
+Then the ``plot_all_metrics(players_stats)`` function builds histograms of all the metrics described above for the specified dataframe.
 
-Более подробная информация описана в прикрепленном docx-файле 
+The ```normality_check(data)`` function checks the data for normality
+
+The ```detecting_cheaters(data1, data2)`` function tests the hypothesis of equality of mean values if the data of both samples are normal
+
+The function ```detecting_cheaters_if_distributions_are_not_normal(data1, data2)`` tests the hypothesis of equality of mean values, if the data are not normal.
+
+
+**Batch analysis by the engine is long, there are 2 csv files attached to the repository with the uploaded and raasculated data**
+
+
