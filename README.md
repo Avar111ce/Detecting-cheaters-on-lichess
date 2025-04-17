@@ -3,7 +3,7 @@ The program analyzes a player's chess games for different periods of time and ch
 
 ## Requirements
 
-To use the program you need python version 3.8 and below. The first block of the ipynb-file contains commands for setting up the virtual environment and downloading the necessary libraries
+To use the program you need python version 3.8 and below. The **first block of the ipynb-file** contains commands for setting up the virtual environment and downloading the necessary libraries
 
 To work with the program you need **API token with lichess**. You can get it by going to site settings -> API access tokens -> New personal API access token, then select all the checkboxes and get a personal access token. It should be used in the function argent. https://lichess.org/account/oauth/token 
 
@@ -42,4 +42,16 @@ The function ```detecting_cheaters_if_distributions_are_not_normal(data1, data2)
 
 **Batch analysis by the engine is long, there are 2 csv files attached to the repository with the uploaded and raasculated data**
 
+## Running files
+
+ipynb:
+
+git clone https://github.com/Avar111ce/Detecting-cheaters-on-lichess.git
+cd src
+jupyter notebook Detecting_cheaters_on_lichess.ipynb
+
+py:
+git clone https://github.com/Avar111ce/Detecting-cheaters-on-lichess.git
+cd src
+python Detecting_cheaters_on_lichess.py
 
