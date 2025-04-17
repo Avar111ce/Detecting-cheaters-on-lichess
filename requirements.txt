@@ -1,0 +1,12 @@
+!sudo apt-get update
+!sudo apt-get install python3.8 python3.8-venv
+
+!python3.8 -m venv py38_env
+!source py38_env/bin/activate
+
+!pip uninstall -y simplejson berserk
+!pip install berserk==0.10.0 python-chess scipy numpy pandas tqdm
+
+
+!sudo apt-get install stockfish
+!pip install chess-engine
