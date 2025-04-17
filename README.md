@@ -48,14 +48,16 @@ ipynb:
 
 git clone https://github.com/Avar111ce/Detecting-cheaters-on-lichess.git
 
-cd src
+pip intsll -r requirements.txt
 
 jupyter notebook Detecting_cheaters_on_lichess.ipynb
 
+
 py:
+
 git clone https://github.com/Avar111ce/Detecting-cheaters-on-lichess.git
 
-cd src
+pip intsll -r requirements.txt
 
 python Detecting_cheaters_on_lichess.py
 
