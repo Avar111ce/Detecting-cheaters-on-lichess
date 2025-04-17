@@ -1,5 +1,5 @@
 # Detecting-cheaters-on-lichess
-Программа выполняет анализ шахматных партий игрока за разные промежутки времени и проверяет, не читерил ли он в одном из них
+The program analyzes a player's chess games for different periods of time and checks if he cheated in one of them
 
 ## Requirements
 
